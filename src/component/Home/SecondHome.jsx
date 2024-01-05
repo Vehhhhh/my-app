@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../Home/SecondHome.css'
 
 export default function SecondHome() {
-    function initMap() {
+    //function initMap() {
         // var map = new google.maps.Map(document.getElementById('map'), {
         //   center: {lat: 40.7128, lng: -74.0060},
         //   zoom: 12
         // });
-      }
+     // }
   return (
      <div>
          {/* <!--=============== HEADER ===============-->*/}
@@ -23,34 +24,40 @@ export default function SecondHome() {
                             <a href="#home" className ="nav__link active-link">Home</a>
                         </li>
                         <li className ="nav__item">
-                            <a href="#about" className ="nav__link">Booking</a>
+                            <Link to="/Report" className ="nav__link">Return</Link>
                         </li>
                     </ul>
                 </div>
             </nav>
-        </header>
-               
+        </header>      
             {/* <!--=============== HOME ===============--> */}
-        <section className ="home section" id="home">
-            <div className ="home__container container grid">
+        <div>
+        <section className ="home section flex justify-start" id="home">
+            <div className ="home__container container flex">
                 <div className ="home__data">
-                    <div className='home__actionRow__2zr8E'>
-                    <div className="cha-destination">
-                        <div className='city-selct__citySelect__7GeJ0'>
-                            <h4 role='button' tabindex="-123">Delivery in Phnom Penh</h4>
-                        </div>
-                        <i aria-label="icon: down" title="" tabindex="-1" class="anticon anticon-down grab-ui ant-dropdown-trigger">
-                            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </i>
-                        </div>
+                    <div className='home__actionRow__2zr8E mb-4 flex justify-between'>
+                    <div>
+                    <label htmlFor="option">Delivery in </label>
+                    <select name="select" id="" className="outline-offset-0 outline-transparent">
+                        <option value="">Phnom Penh</option>
+                        <option value="">Kompot</option>
+                        <option value="">Siem Reap</option>
+                        <option value="">Kondal</option>
+                    </select>
+                    </div>
+                    <a href="#" className="multiple">Multiple Booking</a>
                     </div>
                 <div className ="ant-row-flex styles__bookOrderWidget___1orvu">
-                    <div className="deli-destination">
+                    <div className="deli-destination flex items-center justify-between">
                         <div className ="ant-col styles__poiField___1MV95 styles__pickUp___3yfVZ ant-col-xs-22 ant-col-md-6">
                             <div className ="styles__location___3el4p">
-                                <h6>Delivery from...</h6>
+                                <h6 className="text-start">Delivery from........</h6>
+                            </div> 
+                            <div >
+                                <form action="" className="flex mt-3">
+                                    <input type="text" className="text-black text-xs"placeholder='Who is sending?' name="" id="" />
+                                    <input type="text"  className="text-black text-xs" placeholder='Phone Number' name="" id="" />
+                                </form>
                             </div>
                         </div>
                         <div class="ant-col styles__swapField___S3fmc ant-col-xs-2 ant-col-md-1">
@@ -64,26 +71,61 @@ export default function SecondHome() {
                         </div>
                         <div className ="ant-col styles__poiField___1MV95 styles__dropOff___2jYMB ant-col-xs-24 ant-col-md-6">
                             <div className ="styles__location___3el4p">
-                                <h6> Delivery to... </h6>
+                                <h6 className="text-start"> Delivery to........ </h6>
                             </div>
-                        </div>
-                        <div className ="ant-col ant-col-xs-24 ant-col-md-7">
-                            <div className ="styles__serviceConfigField___12kzv styles__serviceConfigField___E4mtl">
-                                <div className ="styles__content___1bzVR styles__disabled___2V8Wn">
-                                       
-                                    <div className ="styles__selectedOption___1TAHx">
-                                        <div className ="styles__firstRow___3rK11">
-                                            <h6>Choose delivery options</h6>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="">
+                                <form action="" className="flex mt-3">
+                                    <input type="text" className="text-black text-xs" name="" placeholder='Recipient name' id="" />
+                                    <input type="text" name="" className="text-black text-xs" placeholder='Phone Number' id="" />
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>       
-            </div>   
+                </div>  
+                <section className="text-sm mt-4 ">
+        <h2 className="text-start">item Details</h2>
+        <div>
+        <form action="">
+         <div className="flex justify-between items-center mt-5">
+            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+                            <option value="">Choose size</option>
+                            <option value="">S</option>
+                            <option value="">M</option>
+            </select>
+           <div className=" w-fit bg-blue-100 rounded-md p-1">
+                <input type="number" name="" className="outline-none bg-blue-100 rounded-md" placeholder='' id="" />
+                <label htmlFor="">Kg</label>
+           </div>
+           <div>
+           <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+                            <option value="">Choose size</option>
+                            <option value="">S</option>
+                            <option value="">M</option>
+            </select>
+           </div>
+        <div>
+            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+                            <option value="">Choose size</option>
+                            <option value="">S</option>
+                            <option value="">M</option>
+        </select>
+        </div>
+        <div>
+            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+                            <option value="">Choose size</option>
+                            <option value="">S</option>
+                            <option value="">M</option>
+        </select>
+        </div>
+         </div>
+        </form>
+        </div>
+        </section>       
+        </div>   
         </div>
     </section>
+   
+        </div>
     </div>
   )
 }

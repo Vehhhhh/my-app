@@ -50,7 +50,6 @@ export default function home() {
           <div className="nav__toggle" id="nav-toggle">
             <i className="bx bx-grid-alt"></i>
           </div>
-          {/* <Link to="/login" className="button button__header">lOGIN</Link> */}
           <a href="/login" className="button button__header">Login</a>
         </nav>
       </header>
@@ -1415,8 +1414,10 @@ export default function home() {
               <p className="home__description">
                 Order your favorite foods at any time and we will deliver them right to where you are.
               </p>
-
-              <a href="/login" className="button">Get Started</a>
+              
+              <input type="text" id="text" value="" placeholder="Enter order ID to track" name="track" required/> 
+              
+              <a href="#" className="button">Track</a>
             </div>
           </div>
         </section>

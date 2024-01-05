@@ -16,8 +16,7 @@ export default function Login() {
             <div className="mb-6">
               <label
                 for="new-password"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Phone Number
               </label>
               <div className="mt-1">
