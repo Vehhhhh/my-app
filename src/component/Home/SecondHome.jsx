@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import '../Home/SecondHome.css'
 
@@ -9,22 +9,21 @@ export default function SecondHome() {
         //   zoom: 12
         // });
      // }
+     const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
   return (
      <div>
          {/* <!--=============== HEADER ===============-->*/}
         <header className ="header" id="header">
             <nav className ="nav container">
-            <a href="#" className Name="nav__logo">
-          <img src="../assets.Screenshot(262).png" alt="" width="160px" />
-        </a>
+            
 
                 <div className ="nav__menu" id="nav-menu">
                     <ul className ="nav__list">
                         <li className ="nav__item">
-                            <a href="#home" className ="nav__link active-link">Home</a>
+                            <a href="#home" className ="nav__link ">Home</a>
                         </li>
                         <li className ="nav__item">
-                            <Link to="/Report" className ="nav__link">Return</Link>
+                            <Link to="/Return" className ="nav__link">Return</Link>
                         </li>
                     </ul>
                 </div>
@@ -45,13 +44,39 @@ export default function SecondHome() {
                         <option value="">Kondal</option>
                     </select>
                     </div>
-                    <a href="#" className="multiple">Multiple Booking</a>
                     </div>
                 <div className ="ant-row-flex styles__bookOrderWidget___1orvu">
                     <div className="deli-destination flex items-center justify-between">
                         <div className ="ant-col styles__poiField___1MV95 styles__pickUp___3yfVZ ant-col-xs-22 ant-col-md-6">
                             <div className ="styles__location___3el4p">
-                                <h6 className="text-start">Delivery from........</h6>
+                                <button
+                                    className=""
+                                    type="button"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasWithBothOptions"
+                                    aria-controls="offcanvasWithBothOptions"
+                                    onClick={() => setOffcanvasOpen(!isOffcanvasOpen)}
+                                >
+                                    Delivery from.......
+
+                                </button>
+                                                          
+                                <div
+                                    className={`offcanvas offcanvas-start ${isOffcanvasOpen ? 'show' : ''}`}
+                                    data-bs-scroll="true"
+                                    tabIndex="-1"
+                                    id="offcanvasWithBothOptions"
+                                    aria-labelledby="offcanvasWithBothOptionsLabel">
+                                    <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6975.027523071996!2d104.92469578529848!3d11.570453886817882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109514442da53f3%3A0x101b66669f6fb459!2sCamEd%20Business%20School!5e0!3m2!1sen!2skh!4v1704724634387!5m2!1sen!2skh"
+                                    width="600"
+                                    height="450"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                ></iframe>
+                                </div>
                             </div> 
                             <div >
                                 <form action="" className="flex mt-3">
@@ -71,7 +96,34 @@ export default function SecondHome() {
                         </div>
                         <div className ="ant-col styles__poiField___1MV95 styles__dropOff___2jYMB ant-col-xs-24 ant-col-md-6">
                             <div className ="styles__location___3el4p">
-                                <h6 className="text-start"> Delivery to........ </h6>
+                            <button
+                                    className=""
+                                    type="button"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasWithBothOptions"
+                                    aria-controls="offcanvasWithBothOptions"
+                                    onClick={() => setOffcanvasOpen(!isOffcanvasOpen)}
+                                >
+                                    Delivery to.......
+
+                                </button>
+                                <div
+                                    className={`offcanvas offcanvas-start ${isOffcanvasOpen ? 'show' : ''}`}
+                                    data-bs-scroll="true"
+                                    tabIndex="-1"
+                                    id="offcanvasWithBothOptions"
+                                    aria-labelledby="offcanvasWithBothOptionsLabel"
+                                >
+                                    <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7706603776874!2d104.88811507486918!3d11.568291888632734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2sRUPP%20(Royal%20University%20of%20Phnom%20Penh)!5e0!3m2!1sen!2skh!4v1704729544607!5m2!1sen!2skh" 
+                                    width="600" 
+                                    height="450" 
+                                    style={{border:0}}
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
                             </div>
                             <div className="">
                                 <form action="" className="flex mt-3">
@@ -83,10 +135,10 @@ export default function SecondHome() {
                     </div>
                 </div>  
                 <section className="text-sm mt-4 ">
-        <h2 className="text-start">item Details</h2>
+        <h2 className="text-start">Item Details</h2>
         <div>
         <form action="">
-         <div className="flex justify-between items-center mt-5">
+         <div className="flex justify-between items-center mt-3">
             <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
                             <option value="">Choose size</option>
                             <option value="">S</option>
@@ -98,23 +150,24 @@ export default function SecondHome() {
            </div>
            <div>
            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
-                            <option value="">Choose size</option>
-                            <option value="">S</option>
-                            <option value="">M</option>
+                            <option value="">Select item type(Optional)</option>
+                            <option value="">Food</option>
+                            <option value="">Clothes</option>
+                            <option value="">Electronics</option>
+                            <option value="">Other</option>
             </select>
            </div>
         <div>
             <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
-                            <option value="">Choose size</option>
-                            <option value="">S</option>
-                            <option value="">M</option>
+                            <option value="">Choose delivery options</option>
+                            <option value="">Tuk Tuk</option>
+                            <option value="">Moto</option>
         </select>
         </div>
         <div>
             <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
-                            <option value="">Choose size</option>
-                            <option value="">S</option>
-                            <option value="">M</option>
+                            <option value="">Cash by Recipiet</option>
+                            <option value="">Cash by Sender</option>
         </select>
         </div>
          </div>

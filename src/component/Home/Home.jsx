@@ -20,7 +20,7 @@ export default function home() {
           <div className="nav__menu" id="nav-menu">
             <ul className="nav__list">
               <li className="nav__item">
-                <a href="#home" className="nav__link active-link">
+                <a href="#home" className="nav__link ">
                   Home
                 </a>
               </li>
@@ -1414,10 +1414,13 @@ export default function home() {
               <p className="home__description">
                 Order your favorite foods at any time and we will deliver them right to where you are.
               </p>
-              
-              <input type="text" id="text" value="" placeholder="Enter order ID to track" name="track" required/> 
-              
-              <a href="#" className="button">Track</a>
+                  <div class="w-full px-3">
+                    <div class="mb-3">
+                        <input type="text" name="fName" id="fName" placeholder="Enter your ID to track"
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md label-return-package" />
+                             <a href="#" className="button">Track</a>
+                    </div>
+                </div>        
             </div>
           </div>
         </section>

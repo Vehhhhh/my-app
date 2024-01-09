@@ -1,0 +1,80 @@
+.tracking .progress-5 > ul > li.bullet-3 .el i,
+.tracking .progress-6 > ul > li.bullet-3 .el i,
+.tracking .progress-7 > ul > li.bullet-3 .el i
+{ display: block; }
+
+.tracking .progress-7 > ul > li.bullet-4 .el i
+{ display: block; }
+
+.tracking .progress-1 > ul > li.bullet-1 .txt,
+.tracking .progress-2 > ul > li.bullet-1 .txt,
+.tracking .progress-3 > ul > li.bullet-1 .txt,
+.tracking .progress-4 > ul > li.bullet-1 .txt,
+.tracking .progress-5 > ul > li.bullet-1 .txt,
+.tracking .progress-6 > ul > li.bullet-1 .txt,
+.tracking .progress-7 > ul > li.bullet-1 .txt
+{ color: var(--blue); }
+
+.tracking .progress-3 > ul > li.bullet-2 .txt,
+.tracking .progress-4 > ul > li.bullet-2 .txt,
+.tracking .progress-5 > ul > li.bullet-2 .txt,
+.tracking .progress-6 > ul > li.bullet-2 .txt,
+.tracking .progress-7 > ul > li.bullet-2 .txt
+{ color: var(--blue); }
+
+.tracking .progress-5 > ul > li.bullet-3 .txt,
+.tracking .progress-6 > ul > li.bullet-3 .txt,
+.tracking .progress-7 > ul > li.bullet-3 .txt
+{ color: var(--blue); }
+
+.tracking .progress-7 > ul > li.bullet-4 .txt
+{ color: var(--blue); }
+
+/* demo */
+.controls {
+  margin: 90px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.controls > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: space-between;
+  margin: 0;
+  padding: 0;
+}
+.controls p,
+.controls button {
+  border: 0;
+  line-height: 20px;
+  padding: 15px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.controls button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 6px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 50px;
+  transition: all .3s;
+}
+.controls button:nth-child(1) {
+  margin-left: 0;
+}
+.controls button i {
+  font-size: 1rem;
+  margin: 0 5px;
+}
+.controls button#prev { padding-right: 30px; }
+.controls button#next { padding-left: 30px; }
+
+.controls button:hover,
+.controls button:focus {
+  outline: none;
+  background-color: var(--green);
+}

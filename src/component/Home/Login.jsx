@@ -16,7 +16,7 @@ export default function Login() {
             <div className="mb-6">
               <label
                 for="new-password"
-                className="block text-sm font-medium text-gray-700">
+                className="block text-sm font-medium text-gray-700 content-start">
                 Phone Number
               </label>
               <div className="mt-1">
@@ -32,7 +32,7 @@ export default function Login() {
             <div className="mb-6">
               <label
                 for="new-password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 content-start"
               >
                 Password
               </label>
@@ -59,7 +59,7 @@ export default function Login() {
                 </a>
               </div>
             </div>
-            <button className="inline-block w-full py-4 px-6 mb-6 text-center text-lg leading-6 text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200">
+            <button className="inline-block w-full py-2 px-4 mb-6 text-center text-lg leading-6 text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200 submit-login-btn">
               {" "}
               Login
             </button>

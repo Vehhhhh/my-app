@@ -16,7 +16,7 @@ export default function Register() {
             <form className ="space-y-6" method="POST">
 
                 <div>
-                    <label for="new-password" className ="block text-sm font-medium text-gray-700">Username</label>
+                    <label for="new-password" className ="block text-sm font-medium text-gray-700 content-start">Username</label>
                     <div className ="mt-1">
                         <input name="username" placeholder="Enter your name" type="username" required
                             className ="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
@@ -24,7 +24,7 @@ export default function Register() {
                 </div>
 
                 <div>
-                    <label for="password" className ="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <label for="password" className ="block text-sm font-medium text-gray-700 content-start">Phone Number</label>
                     <div className ="mt-1">
                         <input name="email" type="email-address" placeholder="Enter your phone number" autocomplete="email-address" required
                             className ="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
@@ -32,7 +32,7 @@ export default function Register() {
                 </div>
 
                 <div>
-                    <label for="password" className ="block text-sm font-medium text-gray-700">Password</label>
+                    <label for="password" className ="block text-sm font-medium text-gray-700 content-start">Password</label>
                     <div className ="mt-1">
                         <input name="password" type="password" placeholder="Enter your password" autocomplete="password" required
                             className ="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
@@ -40,7 +40,7 @@ export default function Register() {
                 </div>
 
                 <div>
-                    <label for="password" className ="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <label for="password" className ="block text-sm font-medium text-gray-700 content-start">Confirm Password</label>
                     <div className ="mt-1">
                         <input name="confirm_password" type="password" placeholder="Confirm your password" autocomplete="confirm-password" required
                             className ="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
@@ -49,7 +49,7 @@ export default function Register() {
 
                 <div>
                     <button type="submit"
-                        className ="flex w-full justify-center rounded-md border border-transparent bg-sky-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">Register
+                        className ="flex w-full justify-center rounded-md border border-transparent bg-sky-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 register-account-btn">Register
                         Account
                         </button>
                 </div>

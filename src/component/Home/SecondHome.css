@@ -3,8 +3,15 @@
   display: flex;
   align-items: center;
 }
+.register-account-btn {
+  background-color:blue;
 
 
+}
+iframe {
+  width:400px;
+  height: 600px
+}
 .nav__list {
   display: flex;
   flex-direction: column;
@@ -17,7 +24,10 @@
   font-weight: 50%;
 }
 
-
+.content-start {
+  display:flex;
+  justify-content:start;
+}
 /*=============== HOME ===============*/
 
 .home__title {
