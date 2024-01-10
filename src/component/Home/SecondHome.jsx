@@ -13,7 +13,7 @@ export default function SecondHome() {
   return (
      <div>
          {/* <!--=============== HEADER ===============-->*/}
-        <header className ="header" id="header">
+        <header className ="header mt-3" id="header">
             <nav className ="nav container">
             
 
@@ -30,8 +30,8 @@ export default function SecondHome() {
             </nav>
         </header>      
             {/* <!--=============== HOME ===============--> */}
-        <div>
-        <section className ="home section flex justify-start" id="home">
+        <div >
+        <section className ="home section flex justify-start " id="home">
             <div className ="home__container container flex">
                 <div className ="home__data">
                     <div className='home__actionRow__2zr8E mb-4 flex justify-between'>
@@ -67,15 +67,19 @@ export default function SecondHome() {
                                     tabIndex="-1"
                                     id="offcanvasWithBothOptions"
                                     aria-labelledby="offcanvasWithBothOptionsLabel">
-                                    <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6975.027523071996!2d104.92469578529848!3d11.570453886817882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109514442da53f3%3A0x101b66669f6fb459!2sCamEd%20Business%20School!5e0!3m2!1sen!2skh!4v1704724634387!5m2!1sen!2skh"
-                                    width="600"
-                                    height="450"
-                                    style={{ border: 0 }}
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>
+                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"/>
+                                    <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7706603776874!2d104.88811507486918!3d11.568291888632734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2sRUPP%20(Royal%20University%20of%20Phnom%20Penh)!5e0!3m2!1sen!2skh!4v1704729544607!5m2!1sen!2skh" 
+                                    width="600" 
+                                    height="450" 
+                                    style={{border:0}}
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                    <button type="button" className="w-full justify-center rounded-md border border-transparent bg-sky-400 py-2 px-2 mt-5 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 register-account-btn">
+                                        <span>Confirm</span>
+                                    </button>                                 
                                 </div>
                             </div> 
                             <div >
@@ -112,8 +116,8 @@ export default function SecondHome() {
                                     data-bs-scroll="true"
                                     tabIndex="-1"
                                     id="offcanvasWithBothOptions"
-                                    aria-labelledby="offcanvasWithBothOptionsLabel"
-                                >
+                                    aria-labelledby="offcanvasWithBothOptionsLabel">
+                                    <button type="button" className="btn-close border-black" data-bs-dismiss="offcanvas" aria-label="Close">k</button>
                                     <iframe 
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7706603776874!2d104.88811507486918!3d11.568291888632734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2sRUPP%20(Royal%20University%20of%20Phnom%20Penh)!5e0!3m2!1sen!2skh!4v1704729544607!5m2!1sen!2skh" 
                                     width="600" 
@@ -123,6 +127,9 @@ export default function SecondHome() {
                                     loading="lazy" 
                                     referrerpolicy="no-referrer-when-downgrade">
                                     </iframe>
+                                    <button type="button" className="w-full justify-center rounded-md border border-transparent bg-sky-400 py-2 px-2 mt-5 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 register-account-btn">
+                                        <span>Confirm</span>
+                                    </button>
                                 </div>
                             </div>
                             <div className="">

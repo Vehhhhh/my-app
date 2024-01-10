@@ -1412,8 +1412,7 @@ export default function home() {
                 Order Products <br /> Faster Easier
               </h1>
               <p className="home__description">
-                Order your favorite foods at any time and we will deliver them right to where you are.
-              </p>
+              Booking our delivery at any time and we will deliver them right to where you want to send. </p>
                   <div class="w-full px-3">
                     <div class="mb-3">
                         <input type="text" name="fName" id="fName" placeholder="Enter your ID to track"
@@ -2994,13 +2993,13 @@ export default function home() {
                   </clipPath>
                 </defs>
               </svg>
-              <p className="services__description">Pay with a Visa or PayPal card and without much ado.</p>
+              <p className="services__description">Pay with ABA or Aceleda bank and without much ado.</p>
               <div>
                 {/* <!-- <a href="#" className="button button-link">Learn More</a>-->  */}
               </div>
             </div>
             <div className="services__data">
-              <h3 className="services__subtitle">Find Your Product</h3>
+              <h3 className="services__subtitle">Fast Delivery</h3>
               <svg
                 className="svg__color services__img"
                 viewBox="0 0 129 94"
@@ -3882,7 +3881,7 @@ export default function home() {
                   </clipPath>
                 </defs>
               </svg>
-              <p className="services__description"> We offer sale of products through the Internet.</p>
+              <p className="services__description"> Delivery express and store your luggage carefully.</p>
               <div>
                 {/* <!--<a href="#" className="button button-link">Learn More</a>--> */}
               </div>
@@ -4613,7 +4612,7 @@ export default function home() {
                   </clipPath>
                 </defs>
               </svg>
-              <p className="services__description">In our app you can see the delay time of your order.</p>
+              <p className="services__description">In our website you can see give your items to recipient.</p>
               <div>
                 {/* <!-- <a href="#" className="button button-link">Learn More</a>--> */}
               </div>

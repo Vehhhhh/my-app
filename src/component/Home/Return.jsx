@@ -3,7 +3,7 @@ export default function Return() {
   return (
     <div>
         <h1 className="mt-5 text-2xl font-bold">Return Package</h1>
-        <div class="flex items-center justify-center mt-5">
+        <div class="flex items-center justify-center mt-3">
     <div class="mx-auto w-full max-w-[550px] bg-white">
         <form>
             <div class="-mx-3 flex flex-wrap">
