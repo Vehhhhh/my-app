@@ -3,13 +3,21 @@ import { Link } from 'react-router-dom'
 import '../Home/SecondHome.css'
 
 export default function SecondHome() {
-    //function initMap() {
-        // var map = new google.maps.Map(document.getElementById('map'), {
-        //   center: {lat: 40.7128, lng: -74.0060},
-        //   zoom: 12
-        // });
-     // }
      const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
+     const [distance, setDistance] = useState(0);
+     const [totalOrder, setTotalOrder] = useState(0);
+
+     const handleDistanceChange = (event) => {
+     const newDistance = parseFloat(event.target.value);
+     setDistance(newDistance);
+     calculateTotalOrder(newDistance);
+  };
+
+  const calculateTotalOrder = (newDistance) => {
+    const costPerKm = 1.00;
+    const newTotalOrder = newDistance * costPerKm;
+    setTotalOrder(newTotalOrder);
+  };
   return (
      <div>
          {/* <!--=============== HEADER ===============-->*/}
@@ -67,8 +75,7 @@ export default function SecondHome() {
                                     tabIndex="-1"
                                     id="offcanvasWithBothOptions"
                                     aria-labelledby="offcanvasWithBothOptionsLabel">
-                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"/>
-                                    <iframe 
+                                    <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7706603776874!2d104.88811507486918!3d11.568291888632734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2sRUPP%20(Royal%20University%20of%20Phnom%20Penh)!5e0!3m2!1sen!2skh!4v1704729544607!5m2!1sen!2skh" 
                                     width="600" 
                                     height="450" 
@@ -112,12 +119,11 @@ export default function SecondHome() {
 
                                 </button>
                                 <div
-                                    className={`offcanvas offcanvas-start ${isOffcanvasOpen ? 'show' : ''}`}
+                                    className={`offcanvas offcanvas-start hidden`}
                                     data-bs-scroll="true"
                                     tabIndex="-1"
                                     id="offcanvasWithBothOptions"
                                     aria-labelledby="offcanvasWithBothOptionsLabel">
-                                    <button type="button" className="btn-close border-black" data-bs-dismiss="offcanvas" aria-label="Close">k</button>
                                     <iframe 
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7706603776874!2d104.88811507486918!3d11.568291888632734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2sRUPP%20(Royal%20University%20of%20Phnom%20Penh)!5e0!3m2!1sen!2skh!4v1704729544607!5m2!1sen!2skh" 
                                     width="600" 
@@ -180,7 +186,13 @@ export default function SecondHome() {
          </div>
         </form>
         </div>
-        </section>       
+        </section>     
+        <div className="text-sm mt-4 flex ">
+            <p>Total Price: ${totalOrder.toFixed(2)}</p>
+        </div>   
+        <div>
+            <button type="submit" className ="book mt-4 text-sm text-white">{" "} Book Delivery</button>
+        </div>     
         </div>   
         </div>
     </section>
