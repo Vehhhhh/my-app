@@ -1,4 +1,7 @@
 import React from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../Auth/logo.png'
+
 import "../Home/Home.css"
 export default function home() {
   // function initMap() {
@@ -12,31 +15,31 @@ export default function home() {
       {/* <!--=============== HEADER ===============-->*/}
       <header className="header" id="header">
         <nav className="nav container">
-          <a href="#" classNameName="nav__logo">
-            <img src="../a" alt="" width="160px" />
-          </a>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <img className="image" src={logo} alt="Logo" width= "160px"/>
+        </Link>
 
           <div className="nav__menu" id="nav-menu">
             <ul className="nav__list">
               <li className="nav__item">
-                <a href="#home" className="nav__link ">
+                <Link  to="/" className="nav__link ">
                   Home
-                </a>
+                </Link >
               </li>
               <li className="nav__item">
-                <a href="#about" className="nav__link">
+                <Link to="#" className="nav__link">
                   About us
-                </a>
+                </Link >
               </li>
               <li className="nav__item">
-                <a href="#services" className="nav__link">
+                <Link to="#" className="nav__link">
                   Services
-                </a>
+                </Link >
               </li>
               <li className="nav__item">
-                <a href="#contact" className="nav__link">
+                <Link to="#" className="nav__link">
                   Contact us
-                </a>
+                </Link >
               </li>
 
               <i
@@ -49,7 +52,7 @@ export default function home() {
           <div className="nav__toggle" id="nav-toggle">
             <i className="bx bx-grid-alt"></i>
           </div>
-          <a href="/login" className="button button__header">Login</a>
+          <Link  to="/login" className="button button__header">Login</Link>
         </nav>
       </header>
       <main className="main">
@@ -1416,7 +1419,7 @@ export default function home() {
                     <div class="mb-3">
                         <input type="text" name="fName" id="fName" placeholder="Enter your ID to track"
                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md label-return-package" />
-                             <a href="#" className="button">Track</a>
+                             <Link    className="button">Track</Link >
                     </div>
                 </div>        
             </div>
@@ -1429,7 +1432,7 @@ export default function home() {
               <h2 className="section__title-center"> About Us</h2>
               <p className="about__description">
                 {" "}
-                CDS or Cambodia Delivery Service, is a delivery service provider of packages for regional customers in Cambodia. CDS is committed to providing customers with a complete solution through smart infrastructure. Fast delivery service with reasonable service charges is provided by friendly and responsible staff, which is satisfied by our customers.
+                CDS or Cambodia Delivery Service, is Link  delivery service provider of packages for regional customers in Cambodia. CDS is committed to providing customers with Link  complete solution through smart infrastructure. Fast delivery service with reasonable service charges is provided by friendly and responsible staff, which is satisfied by our customers.
               </p>
             </div>
             <svg
@@ -2994,7 +2997,7 @@ export default function home() {
               </svg>
               <p className="services__description">Pay with ABA or Aceleda bank and without much ado.</p>
               <div>
-                {/* <!-- <a href="#" className="button button-link">Learn More</a>-->  */}
+                {/* <!-- <Link    className="button button-link">Learn More</Link >-->  */}
               </div>
             </div>
             <div className="services__data">
@@ -3882,7 +3885,7 @@ export default function home() {
               </svg>
               <p className="services__description"> Delivery express and store your luggage carefully.</p>
               <div>
-                {/* <!--<a href="#" className="button button-link">Learn More</a>--> */}
+                {/* <!--<Link    className="button button-link">Learn More</Link >--> */}
               </div>
             </div>
             <div className="services__data">
@@ -4613,7 +4616,7 @@ export default function home() {
               </svg>
               <p className="services__description">In our website you can see give your items to recipient.</p>
               <div>
-                {/* <!-- <a href="#" className="button button-link">Learn More</a>--> */}
+                {/* <!-- <Link    className="button button-link">Learn More</Link >--> */}
               </div>
             </div>
           </div>
@@ -4628,12 +4631,12 @@ export default function home() {
               </h2>
               <p className="app__description"> With our app you can view the route of your order, from our local headquarters to the place where you are. Look for the app now!</p>
               <div className="app__buttons">
-                <a href="#" className="button button-flex">
+                <Link    className="button button-flex">
                   <i className="bx bxl-apple button__icon"></i> App Store
-                </a>
-                <a href="#" className="button button-flex">
+                </Link >
+                <Link    className="button button-flex">
                   <i className="bx bxl-play-store button__icon"></i> Google Play
-                </a>
+                </Link >
               </div>
             </div>
             <svg
@@ -5629,12 +5632,12 @@ export default function home() {
             <h4 className="footer__title">Delivery</h4>
             <ul className="footer__links">
               <li>
-                <a href="#" className="footer__link"> Order Products Faster </a>
+                <Link    className="footer__link"> Order Products Faster </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Easier
-                </a>
+                </Link >
               </li>
             </ul>
           </div>
@@ -5643,24 +5646,24 @@ export default function home() {
             <h3 className="footer__title">Our Services</h3>
             <ul className="footer__links">
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Pricing{" "}
-                </a>
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Discounts
-                </a>
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
-                  Report a bug
-                </a>
+                <Link    className="footer__link">
+                  Report Link  bug
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Terms of Service
-                </a>
+                </Link >
               </li>
             </ul>
           </div>
@@ -5669,19 +5672,19 @@ export default function home() {
             <h3 className="footer__title">Our Company</h3>
             <ul className="footer__links">
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Blog
-                </a>
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Our mision
-                </a>
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Get in touch
-                </a>
+                </Link >
               </li>
             </ul>
           </div>
@@ -5690,40 +5693,40 @@ export default function home() {
             <h3 className="footer__title">Community</h3>
             <ul className="footer__links">
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Support
-                </a>
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Questions
-                </a>
+                </Link >
               </li>
               <li>
-                <a href="#" className="footer__link">
+                <Link    className="footer__link">
                   Customer help
-                </a>
+                </Link >
               </li>
             </ul>
           </div>
           <div className="footer__social">
-            <a href="#" className="footer__social-link">
+            <Link    className="footer__social-link">
               <i className="bx bxl-facebook-circle "></i>
-            </a>
-            <a href="#" className="footer__social-link">
+            </Link >
+            <Link    className="footer__social-link">
               <i className="bx bxl-tiktok"></i>
-            </a>
-            <a href="#" className="footer__social-link">
+            </Link >
+            <Link    className="footer__social-link">
               <i className="bx bxl-instagram-alt"></i>
-            </a>
+            </Link >
           </div>
         </div>
       </footer>
 
       {/*<!--=============== SCROLL UP ===============-->*/}
-      <a href="#" className="scrollup" id="scroll-up">
+      <Link    className="scrollup" id="scroll-up">
         <i className="bx bx-up-arrow-alt scrollup__icon"></i>
-      </a>
+      </Link >
 
       {/*<!--=============== MAIN JS ===============-->*/}
       <script src="/js/main.js"></script>

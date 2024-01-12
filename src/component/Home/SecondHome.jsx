@@ -4,6 +4,8 @@ import '../Home/SecondHome.css';
 import { auth,db } from '../../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
+import logo from '../Auth/logo.png'
+
 
 export default function SecondHome() {
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
@@ -77,20 +79,17 @@ export default function SecondHome() {
         <header className ="header mt-3" id="header">
             <nav className ="nav container">
             
-
-                <div className ="nav__menu" id="nav-menu">
-                    <ul className ="nav__list">
+            <Link to="/" style={{ textDecoration: "none" }}>
+                <img className="image" src={logo} alt="Logo" width= "160px"/>
+            </Link>
 
                         <li className ="nav__item">
-                            <a href="#home" className ="nav__link ">Home</a>
+                            <Link to= "#" className ="nav__link ">Home</Link>
                         </li>
 
                         <li className ="nav__item">
                             <Link to="/Return" className ="nav__link">Return</Link>
                         </li>
-
-                    </ul>
-                </div>
 
                 <div className="nav__link">
                 <button onClick={handleLogout}>Logout</button>

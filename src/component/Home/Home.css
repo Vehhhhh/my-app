@@ -603,3 +603,10 @@ input[type="text"]{
 .submit-login-btn {
   padding:8px 0px;
 }
+
+.top{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
