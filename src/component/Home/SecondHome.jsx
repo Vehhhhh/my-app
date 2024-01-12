@@ -1,23 +1,76 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-import '../Home/SecondHome.css'
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import '../Home/SecondHome.css';
+import { auth,db } from '../../firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function SecondHome() {
-     const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
-     const [distance, setDistance] = useState(0);
-     const [totalOrder, setTotalOrder] = useState(0);
+  const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
+  const [totalOrder, setTotalOrder] = useState(0);
+  const uid = uuidv4();
+  const [inputData,setInputData] = useState({
+    province:"",
+    senderName:"",
+    senderPhone:"",
+    recieverName:"",
+    recieverPhone:"",
+    size:"",
+    kg:"",
+    type:"",
+    deliveryBy:"",
+    cashBy:"",
+  })
 
-     const handleDistanceChange = (event) => {
-     const newDistance = parseFloat(event.target.value);
-     setDistance(newDistance);
-     calculateTotalOrder(newDistance);
+
+  const onChange = (e) => {
+    setInputData((prevInputData) => ({
+      ...prevInputData,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const calculateTotalOrder = (newDistance) => {
-    const costPerKm = 1.00;
-    const newTotalOrder = newDistance * costPerKm;
-    setTotalOrder(newTotalOrder);
+  const navigate = useNavigate();
+
+  //when input kg column Change value re-render this useEffect
+  useEffect(()=>{
+    setTotalOrder(calculateTotalOrder(inputData.kg))
+  },[inputData.kg])
+
+  const calculateTotalOrder = (newWeight) => {
+    const ratePerkg = 0.50;
+    const weightCost = newWeight * ratePerkg;
+    return weightCost
   };
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate('/'); // Use navigate instead of history.push
+    } catch (error) {
+      console.error('Error logging out:', error.message);
+    }
+  };
+
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    try{
+        const trackRef = collection(db, "tracks");
+        await addDoc(trackRef,{
+            ...inputData,
+            receptId:uid
+        });
+        alert('Booked Success');
+        navigate('/Track')
+    }catch(error){
+        console.log(error);
+    }
+  }
+
+  console.log(inputData);
+
+
   return (
      <div>
          {/* <!--=============== HEADER ===============-->*/}
@@ -27,29 +80,37 @@ export default function SecondHome() {
 
                 <div className ="nav__menu" id="nav-menu">
                     <ul className ="nav__list">
+
                         <li className ="nav__item">
                             <a href="#home" className ="nav__link ">Home</a>
                         </li>
+
                         <li className ="nav__item">
                             <Link to="/Return" className ="nav__link">Return</Link>
                         </li>
+
                     </ul>
                 </div>
+
+                <div className="nav__link">
+                <button onClick={handleLogout}>Logout</button>
+               </div>
+
             </nav>
         </header>      
             {/* <!--=============== HOME ===============--> */}
         <div >
         <section className ="home section flex justify-start " id="home">
             <div className ="home__container container flex">
-                <div className ="home__data">
+                <form onSubmit={handleSubmit} className ="home__data">
                     <div className='home__actionRow__2zr8E mb-4 flex justify-between'>
                     <div>
                     <label htmlFor="option">Delivery in </label>
-                    <select name="select" id="" className="outline-offset-0 outline-transparent">
-                        <option value="">Phnom Penh</option>
-                        <option value="">Kompot</option>
-                        <option value="">Siem Reap</option>
-                        <option value="">Kondal</option>
+                    <select name="province" onChange={onChange} value={inputData.province} className="outline-offset-0 outline-transparent">
+                        <option value="Phnom Penh">Phnom Penh</option>
+                        <option value="Kompot">Kompot</option>
+                        <option value="Siem Reap">Siem Reap</option>
+                        <option value="Kondal">Kondal</option>
                     </select>
                     </div>
                     </div>
@@ -90,10 +151,10 @@ export default function SecondHome() {
                                 </div>
                             </div> 
                             <div >
-                                <form action="" className="flex mt-3">
-                                    <input type="text" className="text-black text-xs"placeholder='Who is sending?' name="" id="" />
-                                    <input type="text"  className="text-black text-xs" placeholder='Phone Number' name="" id="" />
-                                </form>
+                                <div className="flex mt-3">
+                                    <input type="text" className="text-black text-xs"placeholder='sender name?' name="senderName" onChange={onChange} value={inputData.senderName} />
+                                    <input type="text"  className="text-black text-xs" placeholder='Phone Number' name="senderPhone" onChange={onChange} value={inputData.senderPhone} />
+                                </div>
                             </div>
                         </div>
                         <div class="ant-col styles__swapField___S3fmc ant-col-xs-2 ant-col-md-1">
@@ -138,11 +199,11 @@ export default function SecondHome() {
                                     </button>
                                 </div>
                             </div>
-                            <div className="">
-                                <form action="" className="flex mt-3">
-                                    <input type="text" className="text-black text-xs" name="" placeholder='Recipient name' id="" />
-                                    <input type="text" name="" className="text-black text-xs" placeholder='Phone Number' id="" />
-                                </form>
+                            <div>
+                            <div className="flex mt-3">
+                                    <input type="text" className="text-black text-xs"placeholder='reciever name?' name="recieverName" onChange={onChange} value={inputData.recieverName} />
+                                    <input type="text"  className="text-black text-xs" placeholder='Phone Number' name="recieverPhone" onChange={onChange} value={inputData.recieverPhone} />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,54 +211,59 @@ export default function SecondHome() {
                 <section className="text-sm mt-4 ">
         <h2 className="text-start">Item Details</h2>
         <div>
-        <form action="">
+        <div>
          <div className="flex justify-between items-center mt-3">
-            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+            <select name="size" className="outline-offset-0 outline-transparent  bg-blue-100 p-1 rounded-md" onChange={onChange} value={inputData.size}>
                             <option value="">Choose size</option>
-                            <option value="">S</option>
-                            <option value="">M</option>
+                            <option >S</option>
+                            <option >M</option>
             </select>
-           <div className=" w-fit bg-blue-100 rounded-md p-1">
-                <input type="number" name="" className="outline-none bg-blue-100 rounded-md" placeholder='' id="" />
-                <label htmlFor="">Kg</label>
+            <div className=" bg-blue-100 rounded-md p-1">
+            <label htmlFor="weight"></label> 
+            <input type="number" name="kg" value={inputData.kg} onChange={onChange} />
+            <label htmlFor="kilo">kg</label>
            </div>
            <div>
-           <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+           <select name="type" onChange={onChange} value={inputData.type} className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
                             <option value="">Select item type(Optional)</option>
-                            <option value="">Food</option>
-                            <option value="">Clothes</option>
-                            <option value="">Electronics</option>
-                            <option value="">Other</option>
+                            <option value="Food">Food</option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Other">Other</option>
             </select>
            </div>
         <div>
-            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+            <select name="deliveryBy" value={inputData.deliveryBy} onChange={onChange} className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
                             <option value="">Choose delivery options</option>
-                            <option value="">Tuk Tuk</option>
-                            <option value="">Moto</option>
+                            <option value="Tuk Tuk">Tuk Tuk</option>
+                            <option value="Moto">Moto</option>
         </select>
         </div>
         <div>
-            <select name="select" id="" className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
-                            <option value="">Cash by Recipiet</option>
-                            <option value="">Cash by Sender</option>
+            <select name="cashBy" value={inputData.cashBy} onChange={onChange} className="outline-offset-0 outline-transparent bg-blue-100 p-1 rounded-md">
+            <option value="">Choose cash by options</option>
+                            <option value="Recipiet">Cash by Recipiet</option>
+                            <option value="Sender">Cash by Sender</option>
         </select>
         </div>
          </div>
-        </form>
+        </div>
         </div>
         </section>     
         <div className="text-sm mt-4 flex ">
-            <p>Total Price: ${totalOrder.toFixed(2)}</p>
+        <div>
+      <p>Total Order: ${totalOrder.toFixed(2)}</p>
+    </div>
         </div>   
         <div>
             <button type="submit" className ="book mt-4 text-sm text-white">{" "} Book Delivery</button>
         </div>     
-        </div>   
+        </form>   
         </div>
     </section>
    
         </div>
     </div>
+     
   )
 }

@@ -1,7 +1,66 @@
-import React from "react";
+import React  , {useState} from "react";
 import "../Home/Home.css";
+import { getDoc, doc, collection, query, where, getDocs, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase'
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [loginSuccess, setLoginSuccess] = useState(false);
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Validation checks
+    if ( !formData.email || !formData.password ) {
+      alert('Please fill in all the fields.');
+      return;
+    }
+  
+    // if (formData.password !== formData.confirm_password) {
+    //   alert('Passwords do not match.');
+    //   return;
+    // }
+  
+    try {
+      // Add data to Firestore collection
+      const userRef = doc(db, 'signin', formData.email);
+      await setDoc(userRef, formData);
+  
+      // Update state to indicate successful registration
+      setLoginSuccess(true);
+  
+      // Reset the form data after submission
+      setFormData({
+        email: '',
+        password: '',
+      });
+  
+      console.log('User data added to Firestore successfully!');
+    } catch (error) {
+      console.error('Error adding user data to Firestore:', error);
+    }
+  };
+  
+
+  // Check if registration was successful before navigating
+  if (loginSuccess) {
+    navigate('/schome');
+  }
   return (
     <section className="py-26 bg-white">
       <div className="container px-4 mx-auto">
@@ -12,26 +71,30 @@ export default function Login() {
             </a>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-2">Login</h2>
           </div>
-          <form action="">
-            <div className="mb-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+
+          <div>
               <label
-                for="new-password"
-                className="block text-sm font-medium text-gray-700 content-start">
-                Phone Number
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 content-start"
+              >
+                Email
               </label>
               <div className="mt-1">
                 <input
-                  name="Phone Number"
-                  placeholder="Enter your phone number"
-                  type="Phone number"
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
                   required
                   className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm"
+                  onChange={handleChange}
                 />
               </div>
             </div>
-            <div className="mb-6">
+           
+            <div>
               <label
-                for="new-password"
+                htmlFor="password"
                 className="block text-sm font-medium text-gray-700 content-start"
               >
                 Password
@@ -39,13 +102,15 @@ export default function Login() {
               <div className="mt-1">
                 <input
                   name="password"
-                  placeholder="Enter your password"
                   type="password"
+                  placeholder="Enter your password"
                   required
                   className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm"
+                  onChange={handleChange}
                 />
               </div>
             </div>
+
             <div className="flex flex-wrap -mx-4 mb-6 items-center justify-between">
               <div className="w-full lg:w-auto px-4 mb-4 lg:mb-0">
                 <label for="">
