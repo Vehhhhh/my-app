@@ -1,6 +1,5 @@
 import React from "react";
 import "../Home/Home.css"
-import { Link } from "react-router-dom";
 export default function home() {
   // function initMap() {
   //     var map = new google.maps.Map(document.getElementById('map'), {
