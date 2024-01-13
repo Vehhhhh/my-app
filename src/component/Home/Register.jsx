@@ -27,10 +27,10 @@ export default function Register() {
     e.preventDefault();
   
     // Validation checks
-    if (!formData.username || !formData.email || !formData.password || !formData.confirm_password) {
-      alert('Please fill in all the fields.');
-      return;
-    }
+    // if (!formData.username || !formData.email || !formData.password || !formData.confirm_password) {
+    //   alert('Please fill in all the fields.');
+    //   return;
+    // }
   
     if (formData.password !== formData.confirm_password) {
       alert('Passwords do not match.');
