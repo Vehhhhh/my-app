@@ -1,23 +1,16 @@
 import React from "react";
-import { Link, useNavigate } from 'react-router-dom';
-import logo from '../Auth/logo.png'
+import { Link } from 'react-router-dom';
+
 
 import "../Home/Home.css"
 export default function home() {
-  // function initMap() {
-  //     var map = new google.maps.Map(document.getElementById('map'), {
-  //       center: {lat: 40.7128, lng: -74.0060},
-  //       zoom: 12
-  //     });
-  //   }
+ 
   return (
     <div>
       {/* <!--=============== HEADER ===============-->*/}
       <header className="header" id="header">
         <nav className="nav container">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <img className="image" src={logo} alt="Logo" width= "160px"/>
-        </Link>
+        
 
           <div className="nav__menu" id="nav-menu">
             <ul className="nav__list">

@@ -4,7 +4,7 @@ import '../Home/SecondHome.css';
 import { auth,db } from '../../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
-import logo from '../Auth/logo.png'
+
 
 
 export default function SecondHome() {
@@ -79,9 +79,7 @@ export default function SecondHome() {
         <header className ="header mt-3" id="header">
             <nav className ="nav container">
             
-            <Link to="/" style={{ textDecoration: "none" }}>
-                <img className="image" src={logo} alt="Logo" width= "160px"/>
-            </Link>
+           
 
                         <li className ="nav__item">
                             <Link to= "#" className ="nav__link ">Home</Link>
